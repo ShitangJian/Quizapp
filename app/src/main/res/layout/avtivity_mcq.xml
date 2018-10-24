@@ -27,15 +27,15 @@
         android:id="@+id/textview_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Question: 1/x"
+        android:text="Question: 1/10"
         android:layout_below="@id/textview_sorce"/>
 
     <TextView
-        android:id="@+id/text_view_question"
+        android:id="@+id/textview_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/radio_question"
-        android:text="Here will be the question\nHere will be the question\nHere will be the question"
+        android:text="Question"
         android:textAlignment="center"
         android:layout_below="@id/textview_order"
         android:textSize="20sp" />
@@ -64,6 +64,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option 3" />
+
+        <RadioButton
+            android:id="@+id/radio_question4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 4" />
 
     </RadioGroup>
 
