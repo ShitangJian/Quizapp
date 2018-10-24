@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     // method move to video intent and start the quiz
     public void startQuiz(){
-        Intent intent = new Intent();
+        Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+        startActivity(intent);
     }
 
 
