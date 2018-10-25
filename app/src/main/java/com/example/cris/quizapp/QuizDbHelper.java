@@ -1,19 +1,19 @@
 package com.example.cris.quizapp;
 
-import android.content.Context;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.cris.quizapp.QuizContract.QuestionTable;
+
 import java.util.ArrayList;
-
-import com.example.cris.quizapp.QuizContract.*;
-
 import java.util.List;
 
 public class QuizDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "INFS1603Quiz.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private SQLiteDatabase db;
 
@@ -30,18 +30,19 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
         // create question table in database
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
-                QuizContract.QuestionTable.TABLE_NAME + " ( " +
-                QuizContract.QuestionTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                QuizContract.QuestionTable.COLUMN_QUESTION + "TEXT, " +
-                QuizContract.QuestionTable.COLUMN_OPTION1 + "TEXT, " +
-                QuizContract.QuestionTable.COLUMN_OPTION2 + "TEXT, " +
-                QuizContract.QuestionTable.COLUMN_OPTION3 + "TEXT, " +
-                QuizContract.QuestionTable.COLUMN_OPTION4 + "TEXT, " +
-                QuizContract.QuestionTable.COLUMN_ANSWER_N + "INTEGER" +
+                QuestionTable.TABLE_NAME + " ( " +
+                QuestionTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                QuestionTable.COLUMN_QUESTION + "TEXT, " +
+                QuestionTable.COLUMN_OPTION1 + "TEXT, " +
+                QuestionTable.COLUMN_OPTION2 + "TEXT, " +
+                QuestionTable.COLUMN_OPTION3 + "TEXT, " +
+                QuestionTable.COLUMN_OPTION4 + "TEXT, " +
+                QuestionTable.COLUMN_ANSWER_N + "INTEGER" +
                 ")";
 
         // execute question table
         db.execSQL(SQL_CREATE_QUESTION_TABLE);
+        insertQuestionsTable();
 
 
     }
@@ -49,7 +50,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     // used to upgrade the table version
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + QuestionTable.TABLE_NAME);
         onCreate(db);
     }
