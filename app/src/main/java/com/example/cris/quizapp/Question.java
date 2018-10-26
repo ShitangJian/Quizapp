@@ -9,10 +9,11 @@ public class Question {
     private String option4;
     private int answerNr;
 
+    //create non-parameter constructor
     public Question() {
     }
 
-    // create constructor for question
+    // create constructor with parameter for question
 
     public Question( String question, String option1, String option2, String option3, String option4, int answerNr) {
         this.question = question;
@@ -24,7 +25,7 @@ public class Question {
     }
 
 
-
+    //all the getter and setter
     public String getQuestion() {
         return question;
     }

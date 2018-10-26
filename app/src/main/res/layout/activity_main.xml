@@ -5,22 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffe300"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INFS1603"
-        android:textSize="40dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
 
+        android:text="Database PAO"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:fontFamily="casual" />
 
 
     <Button
-        android:id="@+id/button_start"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_topic1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Topic 1"
-        android:layout_centerInParent="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="Topic 1: SQL Basic" />
+    <Button
+        android:id="@+id/button_topic2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Topic 2: Entity Relationship"
+        android:layout_marginTop="300dp"
+
+
+        />
+    <Button
+        android:id="@+id/button_topic3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Topic 3: Data Normalisation"
+        android:layout_marginTop="400dp"/>
 
 </RelativeLayout>

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuizDbHelper extends SQLiteOpenHelper {
+    //define static information for database
     private static final String DATABASE_NAME = "INFS1603Quiz.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -23,10 +24,12 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    // the create method for database
     @Override
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
 
+        //create the SQL language in String for new table
         final String SQL_CREATE_QUESTIONS_TABLE = "CREATE TABLE " +
                 QuestionsTable.TABLE_NAME + " ( " +
                 QuestionsTable.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -38,7 +41,10 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_ANSWER_NR + " INTEGER" +
                 ")";
 
+        //execute the SQL language to create the table
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
+
+        //the method to insert information to table
         fillQuestionsTable();
 
     }
@@ -51,8 +57,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //define the attributes and use addQuestion method to insert with those attributes to database
+    //define the attributes and use addQuestion method to insert with those attributes to table in database
     private void fillQuestionsTable() {
+        //create question object with those attribute and use addQuestion method to insert the object to table
         Question q1 = new Question("You can add a row using SQL in a database with which of the following?",
                 "A. ADD", "B. CREATE", "C. INSERT","D. MAKE", 3);
         addQuestion(q1);
@@ -102,16 +109,18 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         //the method used to insert question object to database with those attributes
         private void addQuestion(Question question){
         ContentValues values = new ContentValues();
+            //put information to specific column by using contract class and contenValues method
             values.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
             values.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());
             values.put(QuestionsTable.COLUMN_OPTION2, question.getOption2());
             values.put(QuestionsTable.COLUMN_OPTION3, question.getOption3());
             values.put(QuestionsTable.COLUMN_OPTION4, question.getOption4());
             values.put(QuestionsTable.COLUMN_ANSWER_NR, question.getAnswerNr());
+            //insert the insert question object to database with those attributes
             db.insert(QuestionsTable.TABLE_NAME, null, values);
         }
 
-        //the method to create an arraylist to read the information from database and
+        //the method to create an arraylist to read the information from database
         public List<Question> getAllQuestions() {
             List<Question> questionList = new ArrayList<>();
             db = getReadableDatabase();
