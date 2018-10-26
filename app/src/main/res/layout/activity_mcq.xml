@@ -73,26 +73,19 @@
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/button_preview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="19dp"
-        android:text="Preview" />
 
     <Button
         android:id="@+id/button_next"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
         android:text="Next" />
 
     <Button
         android:id="@+id/button_confirm"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
