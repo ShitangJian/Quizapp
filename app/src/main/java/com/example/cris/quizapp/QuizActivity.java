@@ -117,6 +117,7 @@ public class QuizActivity extends YouTubeBaseActivity {
 
 
         //setting the action for clicking confirm button
+        //reference from https://codinginflow.com/tutorials/android/quiz-app-with-sqlite/part-5-quiz-activity
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,6 +150,7 @@ public class QuizActivity extends YouTubeBaseActivity {
 
 
     //the method to show the question to textview
+    //reference from https://codinginflow.com/tutorials/android/quiz-app-with-sqlite/part-5-quiz-activity
     private void showNextQuestion(){
         //set the option color to black
         option1.setTextColor(Color.BLACK);

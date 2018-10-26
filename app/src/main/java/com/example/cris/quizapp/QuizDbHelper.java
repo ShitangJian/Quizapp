@@ -121,6 +121,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         }
 
         //the method to create an arraylist to read the information from database
+        //reference from https://codinginflow.com/tutorials/android/quiz-app-with-sqlite/part-5-quiz-activity
         public List<Question> getAllQuestions() {
             List<Question> questionList = new ArrayList<>();
             db = getReadableDatabase();
